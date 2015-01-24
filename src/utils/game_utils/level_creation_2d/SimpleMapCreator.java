@@ -1,6 +1,8 @@
-package utils.game-utils.2d-level-creation;
+package utils.game_utils.level_creation_2d;
 
+import utils.game_utils.level_creation_2d.framework.Room;
 import utils.general.ArrayUtils;
+
 import com.badlogic.gdx.math.MathUtils;
 
 public class SimpleMapCreator {
@@ -23,8 +25,7 @@ public class SimpleMapCreator {
 	/**
 	 * Must be called before creating a room.
 	 */
-	public void setRoomParameters(int maxRooms, int maxRoomWidth, int maxRoomHeight, int minRoomWidth,
-		int maxRoomHeight) {
+	public void setRoomParameters(int maxRooms, int maxRoomWidth, int maxRoomHeight, int minRoomWidth, int minRoomHeight) {
 			this.maxRooms = maxRooms;
 			this.maxRoomWidth = maxRoomWidth;
 			this.maxRoomHeight = maxRoomHeight;
@@ -34,9 +35,10 @@ public class SimpleMapCreator {
 	
 	/**
 	 * Assumes all rooms are squares.
+	 * @return 
 	 * @see SimpleMapCreator#setRoomParameters(int, int, int, int, int)
 	 */
-	public setRoomParameters(int maxRooms, int maxRoomSize, int minRoomSize) {
+	public void setRoomParameters(int maxRooms, int maxRoomSize, int minRoomSize) {
 		setRoomParameters(maxRooms, maxRoomSize, maxRoomSize, minRoomSize, minRoomSize);
 	}
 	
@@ -69,7 +71,7 @@ public class SimpleMapCreator {
 		}
 	}
 	
-	public void getBiggestRoom() {
+	public Room getBiggestRoom() {
 		int b = 0;
 		for(int i = 0; i < rooms.length; i++) {
 			if(rooms[i].getArea() > rooms[b].getArea()) b = i;

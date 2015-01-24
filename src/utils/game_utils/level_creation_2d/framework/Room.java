@@ -1,4 +1,4 @@
-package com.strongjoshuagames.experiment.extraFramework;
+package utils.game_utils.level_creation_2d.framework;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
