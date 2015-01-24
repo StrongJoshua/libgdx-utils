@@ -1,6 +1,7 @@
 package utils.game-utils.2d-level-creation;
 
 import utils.general.ArrayUtils;
+import com.badlogic.gdx.math.MathUtils;
 
 public class SimpleMapCreator {
 	private int worldWidth, worldHeight;
