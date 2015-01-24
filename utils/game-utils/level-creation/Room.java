@@ -4,6 +4,12 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * For use in 2D level creation. Rooms are created based off of a 2D array where a room may span multiple array 'rows' and 'columns'.
+ * 
+ * @author StrongJoshua
+ *
+ */
 public class Room {
 	private Rectangle rect;
 
@@ -34,6 +40,10 @@ public class Room {
 		return (int) (rect.width * rect.height);
 	}
 
+	/**
+	 * Assumes the given array has walls set to '1'. Sets room tiles to '0'.
+	 * @param tiles
+	 */
 	public void place(int[][] tiles) {
 		for(int x = (int) rect.x; x < rect.x + rect.width; x++) {
 			for(int y = (int) rect.y; y < rect.y + rect.height; y++) {
@@ -43,7 +53,7 @@ public class Room {
 	}
 
 	/**
-	 * Connects this room to the given room, using straight corridors, by setting the corridor's tiles to 0.
+	 * Connects this room to the given room, using straight corridors. Sets corridor tiles to '0'.
 	 * @param r The room to connect to.
 	 * @param tiles The map's tile array.
 	 */
