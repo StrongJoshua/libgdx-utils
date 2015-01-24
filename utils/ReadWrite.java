@@ -8,7 +8,7 @@ import com.badlogic.gdx.files.FileHandle;
 /**
  * I haven't tested these methods recently, but they allow for reading and writing of values to files.
  * 
- * @author Jan
+ * @author StrongJoshua
  * 
  */
 public class ReadWrite
