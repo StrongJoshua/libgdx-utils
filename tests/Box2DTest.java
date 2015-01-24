@@ -22,6 +22,11 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+/**
+ * Simple Box2D test that incorporates bodies and forces.
+ *
+ * @author StrongJoshua
+ */
 public class Box2DTest extends ApplicationAdapter {
 	SpriteBatch batch;
 	Sprite[] sprites;
@@ -45,7 +50,7 @@ public class Box2DTest extends ApplicationAdapter {
 		mY = (float) HEIGHT / h;
 
 		Box2D.init();
-		world = new World(new Vector2(0, -9.81f * 3f), true);
+		world = new World(new Vector2(0, -9.81f), true);
 		batch = new SpriteBatch();
 
 		sprites = new Sprite[250];
@@ -153,7 +158,8 @@ public class Box2DTest extends ApplicationAdapter {
 		batch.begin();
 		for(int i = 0; i < bodies.length; i++) {
 			Vector2 pos = bodies[i].getPosition();
-			sprites[i].setPosition(pos.x - sprites[i].getWidth() / 2, pos.y - sprites[i].getHeight() / 2);
+			sprites[i].setPosition(pos.x - sprites[i].getWidth() / 2,
+				pos.y - sprites[i].getHeight() / 2);
 			sprites[i].setRotation(MathUtils.radiansToDegrees * bodies[i].getAngle());
 			sprites[i].draw(batch);
 		}
@@ -162,9 +168,15 @@ public class Box2DTest extends ApplicationAdapter {
 		debugRenderer.render(world, c.combined);
 	}
 
-	private void createExplosion(float x, float y) {
-		float maxForce = 50000;
-		float force = maxForce;
+	/**
+	 * Creates an explosion that applies forces to the bodies relative to their position and the
+	 * given x and y values.
+	 *
+	 * @param maxForce The maximum force to be applied to the bodies (diminishes as distance
+	 * from touch increases).
+	 */
+	private void createExplosion(float x, float y, float maxForce) {
+		float force;
 		Vector2 touch = new Vector2(x, y);
 		for(int i = 0; i < bodies.length; i++) {
 			Body b = bodies[i];
@@ -187,7 +199,8 @@ public class Box2DTest extends ApplicationAdapter {
 			boundMax = new Vector3(v.x + 1, v.y + 1, 0);
 			intersection = Vector3.Zero;
 
-			Intersector.intersectRayBounds(new Ray(touch3, v3), new BoundingBox(boundMin, boundMax), intersection);
+			Intersector.intersectRayBounds(new Ray(touch3, v3),
+				new BoundingBox(boundMin, boundMax), intersection);
 
 			b.applyForce(new Vector2(xForce, yForce), new Vector2(intersection.x, intersection.y), true);
 		}
