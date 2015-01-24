@@ -147,7 +147,7 @@ public class Box2DTest extends ApplicationAdapter {
 			
 			Vector3 worldVector = c.unproject(new Vector3(x, y, 0));
 
-			createExplosion(worldVector.x, worldVector.y);
+			createExplosion(worldVector.x, worldVector.y, 2000);
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
 			Gdx.app.exit();
