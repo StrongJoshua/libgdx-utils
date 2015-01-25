@@ -12,7 +12,7 @@ import com.badlogic.gdx.files.FileHandle;
  * @author StrongJoshua
  * 
  */
-public class ReadWrite
+public class ReadWriteObjects
 {
 	private static Object endObject = new String("!end!");
 
