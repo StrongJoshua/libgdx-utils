@@ -5,7 +5,7 @@ import utils.general.ArrayUtils;
 
 import com.badlogic.gdx.math.MathUtils;
 
-public class SimpleMapCreator {
+public class SimpleMapGenerator {
 	private int worldWidth, worldHeight;
 	private int maxRooms, maxRoomWidth, maxRoomHeight, minRoomWidth, minRoomHeight;
 	private int[][] tiles;
@@ -14,9 +14,9 @@ public class SimpleMapCreator {
 	/**
 	 * Constructs a new SimpleMapCreator object. setRoomParameters must be called before creating a map.
 	 * 
-	 * @see SimpleMapCreator#setRoomParameters(int, int, int, int, int)
+	 * @see SimpleMapGenerator#setRoomParameters(int, int, int, int, int)
 	 */
-	public SimpleMapCreator(int width, int height) {
+	public SimpleMapGenerator(int width, int height) {
 		worldWidth = width;
 		worldHeight = height;
 		tiles = new int[width][height];
@@ -37,7 +37,7 @@ public class SimpleMapCreator {
 	/**
 	 * Assumes all rooms are squares.
 	 * 
-	 * @see SimpleMapCreator#setRoomParameters(int, int, int, int, int)
+	 * @see SimpleMapGenerator#setRoomParameters(int, int, int, int, int)
 	 */
 	public void setRoomParameters(int maxRooms, int maxRoomSize, int minRoomSize) {
 		setRoomParameters(maxRooms, maxRoomSize, maxRoomSize, minRoomSize, minRoomSize);
@@ -51,9 +51,9 @@ public class SimpleMapCreator {
 	}
 
 	/**
-	 * Creates the map. Call {@link SimpleMapCreator#getTiles()} to get the result.
+	 * Creates the map. Call {@link SimpleMapGenerator#getTiles()} to get the result.
 	 * 
-	 * @see SimpleMapCreator#getBiggestRoom()
+	 * @see SimpleMapGenerator#getBiggestRoom()
 	 */
 	public void createMap() {
 		int x, y, w, h;
@@ -79,7 +79,7 @@ public class SimpleMapCreator {
 	}
 
 	/**
-	 * <i>{@link SimpleMapCreator#createMap()} must have been called.</i><br><br>
+	 * <i>{@link SimpleMapGenerator#createMap()} must have been called.</i><br><br>
 	 * Can be used for initial placement of the character.
 	 * 
 	 * @return The {@link Room} object of the biggest room in the map.
