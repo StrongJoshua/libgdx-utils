@@ -1,4 +1,4 @@
-package tests;
+package com.strongjoshua.libgdx_utils.tests;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;

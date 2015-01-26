@@ -1,9 +1,8 @@
-package utils.game_utils.level_creation_2d;
-
-import utils.game_utils.level_creation_2d.framework.Room;
-import utils.general.ArrayUtils;
+package com.strongjoshua.libgdx_utils.utils.game_utils.level_creation_2d;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.strongjoshua.libgdx_utils.utils.game_utils.level_creation_2d.framework.Room;
+import com.strongjoshua.libgdx_utils.utils.general.ArrayUtils;
 
 public class SimpleMapGenerator {
 	private int worldWidth, worldHeight;

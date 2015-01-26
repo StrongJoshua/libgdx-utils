@@ -1,4 +1,4 @@
-package utils.general;
+package com.strongjoshua.libgdx_utils.utils.general;
 
 import com.badlogic.gdx.utils.Array;
 
