@@ -49,4 +49,25 @@ public class MathUtils {
 		
 		return f;
 	}
+	
+	public static double clamp(double d, double min, double max) {
+		if(min >= max) throw new IllegalArgumentException("Min must be less than max. " + min + " >= " + max);
+		
+		if(d < min) return min;
+		if(d > max) return max;
+		
+		return d;
+	}
+	
+	public static float abs(float f) {
+		return f < 0 ? -f : f;
+	}
+	
+	public static int abs(int i) {
+		return i < 0 ? -i : i;
+	}
+	
+	public static double abs(double d) {
+		return d < 0 ? -d : d;
+	}
 }
