@@ -31,4 +31,22 @@ public class MathUtils {
 		
 		return r;
 	}
+	
+	public static int clamp(int i, int min, int max) {
+		if(min >= max) throw new IllegalArgumentException("Min must be less than max. " + min + " >= " + max);
+		
+		if(i < min) return min;
+		if(i > max) return max;
+		
+		return i;
+	}
+	
+	public static float clamp(float f, float min, float max) {
+		if(min >= max) throw new IllegalArgumentException("Min must be less than max. " + min + " >= " + max);
+		
+		if(f < min) return min;
+		if(f > max) return max;
+		
+		return f;
+	}
 }
