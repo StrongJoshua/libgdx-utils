@@ -17,4 +17,18 @@ public class MathUtils {
 	public static int unitize(int i) {
 		return Math.abs(i) / i;
 	}
+	
+	public static int ciel(float f) {
+		return ((int) f) + 1;
+	}
+	
+	public static int floor(float f) {
+		boolean neg = f < 0;
+		int r = (int) f;
+		
+		if(neg)
+			r -= 1;
+		
+		return r;
+	}
 }
